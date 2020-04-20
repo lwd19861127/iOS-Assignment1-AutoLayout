@@ -78,6 +78,13 @@ class ViewController: UIViewController {
         return orange
     }()
     
+    let blueBox1: UIView = {
+        let blue = UIView()
+        blue.translatesAutoresizingMaskIntoConstraints = false
+        blue.backgroundColor = .blue
+        return blue
+    }()
+    
     let blueBox2: UIView = {
         let blue = UIView()
         blue.translatesAutoresizingMaskIntoConstraints = false
@@ -93,6 +100,13 @@ class ViewController: UIViewController {
     }()
     
     let blueBox4: UIView = {
+        let blue = UIView()
+        blue.translatesAutoresizingMaskIntoConstraints = false
+        blue.backgroundColor = .blue
+        return blue
+    }()
+    
+    let blueBox5: UIView = {
         let blue = UIView()
         blue.translatesAutoresizingMaskIntoConstraints = false
         blue.backgroundColor = .blue
@@ -118,57 +132,61 @@ class ViewController: UIViewController {
     
     //Wenda Li
     mainView.addSubview(purpleBox)
-    let purpleHeight: CGFloat = 80
+    let purpleHeight: CGFloat = 50
     purpleBox.heightAnchor.constraint(equalToConstant: purpleHeight).isActive = true
     purpleBox.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 300).isActive = true
     purpleBox.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -30).isActive = true
     purpleBox.bottomAnchor.constraint(equalTo: mainView.bottomAnchor, constant: -30).isActive = true
    
     mainView.addSubview(redBox)
-    let redWidth: CGFloat = 200
-    let redHeight: CGFloat = 70
+    let redWidth: CGFloat = 150
+    let redHeight: CGFloat = 50
     redBox.widthAnchor.constraint(equalToConstant: redWidth).isActive = true
     redBox.heightAnchor.constraint(equalToConstant: redHeight).isActive = true
     redBox.topAnchor.constraint(equalTo: mainView.topAnchor, constant: 30).isActive = true
     redBox.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -30).isActive = true
     
     redBox.addSubview(orangeBox1)
-    let orange1Width: CGFloat = 102
-    let orange1Height: CGFloat = 50
+    let orange1Width: CGFloat = 70
+    let orange1Height: CGFloat = 30
     orangeBox1.widthAnchor.constraint(equalToConstant: orange1Width).isActive = true
     orangeBox1.heightAnchor.constraint(equalToConstant: orange1Height).isActive = true
     orangeBox1.centerYAnchor.constraint(equalTo: redBox.centerYAnchor).isActive = true
     orangeBox1.leadingAnchor.constraint(equalTo: redBox.leadingAnchor, constant: 10).isActive = true
     
     redBox.addSubview(orangeBox2)
-    let orange2Width: CGFloat = 68
-    let orange2Height: CGFloat = 50
+    let orange2Width: CGFloat = 50
+    let orange2Height: CGFloat = 30
     orangeBox2.widthAnchor.constraint(equalToConstant: orange2Width).isActive = true
     orangeBox2.heightAnchor.constraint(equalToConstant: orange2Height).isActive = true
     orangeBox2.centerYAnchor.constraint(equalTo: redBox.centerYAnchor).isActive = true
     orangeBox2.trailingAnchor.constraint(equalTo: redBox.trailingAnchor, constant: -10).isActive = true
-
     
     let blueStackView = UIStackView(arrangedSubviews: [
-    blueBox2, blueBox3, blueBox4])
+    blueBox1, blueBox2, blueBox3, blueBox4, blueBox5])
     blueStackView.translatesAutoresizingMaskIntoConstraints = false
     blueStackView.axis = .vertical
     blueStackView.alignment = .center
-    blueStackView.distribution = .fillEqually
+    blueStackView.distribution = .equalSpacing
     
     let blueHeight: CGFloat = 50
+    blueBox1.widthAnchor.constraint(equalTo: blueStackView.widthAnchor).isActive = true
+    blueBox1.heightAnchor.constraint(equalToConstant: 0).isActive = true
     blueBox2.widthAnchor.constraint(equalTo: blueStackView.widthAnchor).isActive = true
     blueBox2.heightAnchor.constraint(equalToConstant: blueHeight).isActive = true
     blueBox3.widthAnchor.constraint(equalTo: blueStackView.widthAnchor).isActive = true
     blueBox3.heightAnchor.constraint(equalToConstant: blueHeight).isActive = true
     blueBox4.widthAnchor.constraint(equalTo: blueStackView.widthAnchor).isActive = true
     blueBox4.heightAnchor.constraint(equalToConstant: blueHeight).isActive = true
+    blueBox5.widthAnchor.constraint(equalTo: blueStackView.widthAnchor).isActive = true
+    blueBox5.heightAnchor.constraint(equalToConstant: 0).isActive = true
 
     mainView.addSubview(blueStackView)
     NSLayoutConstraint.activate([
+    blueStackView.topAnchor.constraint(equalTo: mainView.topAnchor),
+    blueStackView.bottomAnchor.constraint(equalTo: mainView.bottomAnchor),
     blueStackView.centerXAnchor.constraint(equalTo: mainView.centerXAnchor),
     blueStackView.widthAnchor.constraint(equalToConstant: 50),
-    blueStackView.heightAnchor.constraint(equalTo: mainView.heightAnchor),
     ])
     
     //end
